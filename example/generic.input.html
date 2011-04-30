@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Generic Input Test</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono:regular" rel="stylesheet" type="text/css" >
+    <style>
+    body, input, select {
+      font-family: 'Droid Sans Mono', monospace;
+      font-size: 12px;
+    }
+    
+    a { text-decoration: none; }
+    </style>
+    <style type="text/css">
+        table.generic_input { border: #eee 1px solid; margin: 4px; text-shadow: 2px 2px 2px #aaa; box-shadow: 2px 2px 2px #aaa; }
+        .generic_input td { padding: 1px; margin: 0; }
+        .generic_input input { border: #ddd 1px solid; }
+        
+        .generic_input_data_type {
+            color: lightblue;
+            text-shadow: 2px 2px 2px #aaa;
+        }
+        
+        .generic_input_minus {
+            color: red;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px #aaa;
+        }
+        
+        .generic_input_plus {
+            color: green;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px #aaa;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" language="javascript" charset="utf-8" ></script>
+    <script src="../src/generic.input.js" type="text/javascript" language="javascript" charset="utf-8" ></script>
+    <script type="text/javascript">
+
+        $(function() { $('#generic_input').genericInput(); });
+        
+        function test() {
+            $('#data').html($('#generic_input').val());
+            $('#test').html('<input /'+'>');
+            $('#test').find('input').val($('#generic_input').val());
+            $('#test').find('input').genericInput();
+            if ($('#generic_input').next().html() == $('#test').find('input').first().next().html()) {
+                alert('Pass');
+            }
+            else {
+                alert('Fail');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="data"></div>
+    <hr/>
+    <div style="margin-top: 50px; ">
+    <input type="text" id="generic_input" value="[&quot;1&quot;, &quot;2&quot;, (1, 2, 3, {&quot;a&quot;: &quot;1&quot;, &quot;b&quot;: &quot;2&quot;, &quot;c&quot;: [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, ], }, ), ]" />
+    </div>
+    <button onclick="test();">test</button>
+    <div style="clear: both;"></div>
+    <div id="test">
+    </div>
+</body>
+</html>
