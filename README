@@ -1,0 +1,16 @@
+Generic Input Jquery Plugin
+---------------------------
+
+An easy to use plugin to take in generic input data for python backend. 
+Currently the plugin supports String, Numbers, Tuples, Arrays and Dictionaries.
+This is useful where a generic input is needed for configuring python file based
+settings on the backend.
+
+TODO
+----
+* Retain data when changing data types.
+* Ability to feed in pre-defined structure.
+* More UI flexibility.
+
+You need any feature on this? Mail me @ sattvik -at- gmail -dot- com.
+
